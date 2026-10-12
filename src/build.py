@@ -47,7 +47,7 @@ def head(title, desc, fonts='studio', image='images/web/boogie-bg.jpg', path='')
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="{FONTS[fonts]}">
-<link rel="stylesheet" href="css/site.css?v=5">
+<link rel="stylesheet" href="css/site.css?v=6">
 </head>
 '''
 
@@ -144,8 +144,10 @@ def page(name, title, desc, body, current='', fonts='studio', body_class='', ima
 BOOGIE_BLURB = 'A racing mystery with wild tracks, big boss fights and a nightclub to hang out in between races. No guns. Just grooves and gas.'
 
 # ------------------------------------------------------------------ home
-CK_BLURB = 'A multiplayer music world in the sky. Catch live shows, make beats with friends and bring your Cafe Kinship account with you. Coming soon to the Epic Games Store.'
+CK_BLURB = 'A multiplayer music world in the sky. Catch live shows, make beats with friends and bring your Cafe Kinship account with you. Free to download for Windows.'
 CK_SITE = 'https://www.cafekinship.com'
+# GitHub's "latest release" page: always the newest version, whatever the zip is called.
+CK_DOWNLOAD = 'https://github.com/Prismultra/cafe-kinship-game/releases/latest'
 
 home = f'''<main id="main">
   <div class="wrap">
@@ -162,9 +164,9 @@ home = f'''<main id="main">
       <ul class="select-list">
         <li class="select-item is-on" id="g-kinship" data-accent="#ff4fc8" data-accent-ink="#1a0526"
             data-blurb="{escape(CK_BLURB)}"
-            data-primary="cafe-kinship.html" data-primary-label="See the game"
-            data-secondary="#signup" data-secondary-label="Get updates">
-          <a href="cafe-kinship.html">Cafe Kinship <span class="tag">Coming soon</span></a>
+            data-primary="{CK_DOWNLOAD}" data-primary-label="Download free" data-primary-ext="1"
+            data-secondary="cafe-kinship.html" data-secondary-label="See the game">
+          <a href="cafe-kinship.html">Cafe Kinship <span class="tag">Out now</span></a>
         </li>
         <li class="select-item" id="g-boogie" data-accent="#2bf0a6" data-accent-ink="#06140f"
             data-blurb="{escape(BOOGIE_BLURB)}"
@@ -182,8 +184,8 @@ home = f'''<main id="main">
       <div class="select-foot">
         <p class="select-blurb" aria-live="polite">{escape(CK_BLURB)}</p>
         <div class="select-actions">
-          <a class="btn btn-accent select-primary" href="cafe-kinship.html"><span>See the game</span><span class="ext" hidden>{EXT}</span></a>
-          <a class="btn btn-line select-secondary" href="#signup">Get updates</a>
+          <a class="btn btn-accent select-primary" href="{CK_DOWNLOAD}" rel="noopener"><span>Download free</span><span class="ext">{EXT}</span></a>
+          <a class="btn btn-line select-secondary" href="cafe-kinship.html">See the game</a>
         </div>
       </div>
     </section>
@@ -194,10 +196,10 @@ home = f'''<main id="main">
       <h2 id="studio-title">We make the games we want to play</h2>
       <div>
         <p class="lede">We're a small indie studio making games that are fast, a little weird, and fun to play, at a price anyone can grab.</p>
-        <p>Nobody else decides what's fun here. We play our own games over and over and keep changing them until they feel right. Boogie Cruise was our first, and Cafe Kinship is coming soon to the Epic Games Store.</p>
+        <p>Nobody else decides what's fun here. We play our own games over and over and keep changing them until they feel right. Boogie Cruise was our first, and Cafe Kinship is out now as a free download for Windows.</p>
         <a class="btn btn-line" href="about.html">About the studio</a>
         <dl class="facts">
-          <div><dt>1</dt><dd>Game out now</dd></div>
+          <div><dt>2</dt><dd>Games out now</dd></div>
           <div><dt>2025</dt><dd>When we started</dd></div>
           <div><dt>100%</dt><dd>Indie</dd></div>
         </dl>
@@ -211,9 +213,10 @@ home = f'''<main id="main">
       <article class="news">
         <img src="images/web/ck-skyline-small.jpg" alt="The Cafe Kinship tower above a city at night, with searchlights" width="800" height="450" loading="lazy">
         <div>
-          <time datetime="2026">2026</time>
-          <h3>Announcing Cafe Kinship</h3>
-          <p>Our next game is a multiplayer music world in the sky, connected to cafekinship.com. It's coming soon to the Epic Games Store.</p>
+          <time datetime="2026-10">October 2026</time>
+          <h3>Cafe Kinship is out</h3>
+          <p>Our multiplayer music world in the sky, connected to cafekinship.com, is out now. It's a free download for Windows.</p>
+          <a class="btn btn-line" href="{CK_DOWNLOAD}" rel="noopener">Download free{EXT}</a>
           <a class="btn btn-line" href="cafe-kinship.html">See the game</a>
           <a class="btn btn-line" href="blog.html">All news</a>
         </div>
@@ -224,7 +227,7 @@ home = f'''<main id="main">
 {signup()}</main>
 '''
 page('index.html', 'Skill Mode | Independent Game Studio',
-     'Skill Mode is an independent game studio. We develop and publish our own games: Boogie Cruise, out now on Steam, and Cafe Kinship, coming soon to the Epic Games Store.',
+     'Skill Mode is an independent game studio. We develop and publish our own games: Boogie Cruise, out now on Steam, and Cafe Kinship, a free download for Windows.',
      home)
 
 # ------------------------------------------------------------------ games
@@ -238,12 +241,12 @@ games = f'''<main id="main">
     <article class="game-band kinship" aria-labelledby="ck-band-title">
       <div class="art"><img src="images/web/ck-hero.jpg" alt="Cafe Kinship: the Sky Club sign and the Cafe Kinship tower with fireworks over the city" width="1600" height="900" loading="lazy"></div>
       <div class="info">
-        <div class="chips"><span>Coming soon</span><span>Epic Games Store</span><span>Multiplayer</span><span>Music</span></div>
+        <div class="chips"><span>Out now</span><span>Free</span><span>Windows</span><span>Multiplayer</span></div>
         <h2 id="ck-band-title">Cafe Kinship</h2>
         <p>{escape(CK_BLURB)}</p>
         <div class="actions">
-          <a class="btn btn-accent" href="cafe-kinship.html">See the game</a>
-          <a class="btn btn-line" href="index.html#signup">Get updates</a>
+          <a class="btn btn-accent" href="{CK_DOWNLOAD}" rel="noopener">Download free{EXT}</a>
+          <a class="btn btn-line" href="cafe-kinship.html">See the game</a>
         </div>
       </div>
     </article>
@@ -271,7 +274,7 @@ games = f'''<main id="main">
   </div>
 </main>
 '''
-page('games.html', 'Games | Skill Mode', 'Games by Skill Mode, an independent game studio: Cafe Kinship, coming soon to the Epic Games Store, and Boogie Cruise, out now on Steam.',
+page('games.html', 'Games | Skill Mode', 'Games by Skill Mode, an independent game studio: Cafe Kinship, a free download for Windows, and Boogie Cruise, out now on Steam.',
      games, current='games.html', fonts='all')
 
 # ------------------------------------------------------------------ boogie cruise
@@ -374,15 +377,15 @@ kinship = f'''<main id="main">
   <section class="ck-hero" aria-labelledby="ck-title">
     <img src="images/web/ck-hero.jpg" alt="" width="1600" height="900">
     <div class="wrap">
-      <div class="chips"><span>Coming soon</span><span>Epic Games Store</span><span>PC</span><span>Multiplayer</span></div>
+      <div class="chips"><span>Out now</span><span>Free</span><span>Windows</span><span>Multiplayer</span></div>
       <h1 class="ck-title" id="ck-title">Cafe Kinship</h1>
       <p class="ck-tagline">Where music comes to life.</p>
       <p class="ck-intro">A multiplayer music world in the sky. Hang out at the Sky Club, catch live shows, make beats with friends, and bring your Cafe Kinship account with you.</p>
       <div class="ck-actions">
-        <span class="ck-soon">Coming soon to the Epic Games Store</span>
-        <a class="btn btn-accent" href="#signup">Get updates</a>
+        <a class="btn btn-accent" href="{CK_DOWNLOAD}" rel="noopener">Download free for Windows{EXT}</a>
         <a class="btn btn-line" href="{CK_SITE}" rel="noopener">Visit cafekinship.com{EXT}</a>
       </div>
+      <p class="ck-note">Windows 10 or 11 (64-bit) with a DirectX 12 graphics card. About a 1.7 GB download: unzip it and run the game. If Windows says it protected your PC, click More info, then Run anyway.</p>
     </div>
   </section>
 
@@ -461,10 +464,10 @@ kinship = f'''<main id="main">
     </div>
   </section>
 
-{signup('Hear when it launches')}</main>
+{signup('Hear about updates')}</main>
 '''
 page('cafe-kinship.html', 'Cafe Kinship | Skill Mode',
-     'Cafe Kinship by Skill Mode: a multiplayer music world in the sky. Live stages, beat making with friends and your Cafe Kinship account. Coming soon to the Epic Games Store.',
+     'Cafe Kinship by Skill Mode: a multiplayer music world in the sky. Live stages, beat making with friends and your Cafe Kinship account. Free to download for Windows.',
      kinship, current='games.html', fonts='kinship', body_class='theme-kinship', image='images/web/ck-hero.jpg')
 
 # ------------------------------------------------------------------ about
@@ -485,7 +488,7 @@ about = f'''<main id="main">
       <div>
         <p>Skill Mode started in 2025 because we wanted to make the kind of games we'd actually play: fast, a bit weird, and fun from the first minute. We don't chase trends. We make what we're excited about.</p>
         <p>We're small, so we do everything ourselves, from the first prototype to the Steam page. That also means nobody else decides what's fun. We play our games constantly and keep changing them until they feel right.</p>
-        <p>Our first game, Boogie Cruise, is a racing mystery with boss fights and a nightclub hub. Our next one, <a href="cafe-kinship.html">Cafe Kinship</a>, is a multiplayer music world in the sky, coming soon to the Epic Games Store.</p>
+        <p>Our first game, Boogie Cruise, is a racing mystery with boss fights and a nightclub hub. Our next one, <a href="cafe-kinship.html">Cafe Kinship</a>, is a multiplayer music world in the sky, out now as a free download for Windows.</p>
       </div>
     </div>
   </section>
@@ -524,6 +527,18 @@ blog = f'''<main id="main">
       <h1>Blog</h1>
       <p class="lede">News and updates from the studio.</p>
     </header>
+
+    <article class="post" aria-labelledby="p3">
+      <img src="images/web/ck-fireworks.jpg" alt="Fireworks over the Sky Club and the Cafe Kinship tower" width="1600" height="900" loading="lazy">
+      <div>
+        <time datetime="2026-10">October 2026</time>
+        <h2 id="p3">Cafe Kinship is out</h2>
+        <p>Cafe Kinship is out now, and it's free. Download it for Windows, sign in with your Cafe Kinship account and come hang out at the Sky Club.</p>
+        <p>This is version 0.1, so expect rough edges. Tell us what breaks and what you love at <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
+        <a class="btn btn-blue" href="{CK_DOWNLOAD}" rel="noopener">Download free{EXT}</a>
+        <a class="btn btn-line" href="cafe-kinship.html">See the game</a>
+      </div>
+    </article>
 
     <article class="post" aria-labelledby="p2">
       <img src="images/web/ck-skyline.jpg" alt="The Cafe Kinship tower above a city at night, with searchlights" width="1600" height="900" loading="lazy">
